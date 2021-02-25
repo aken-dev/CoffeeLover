@@ -8,8 +8,8 @@
 	}
 }
  class GroundCoffeeBeans {
-	int grind_level; //エスプレッソ=2,  ドリップコーヒー=5,  サイフォン=8
-	int g;
+	 private int grind_level; //エスプレッソ=2,  ドリップコーヒー=5,  サイフォン=8
+	 int g;
 	 GroundCoffeeBeans(int grind_level, int g){
 		this.grind_level = grind_level;
 		this.g = g;
@@ -17,15 +17,15 @@
 	}
 }
  class HandDrip {
-	BoiledWater water;
-	GroundCoffeeBeans beans;
+	private BoiledWater water;
+	private GroundCoffeeBeans beans;
 	int paper_filter = 1;
 	
 	HandDrip(BoiledWater water, GroundCoffeeBeans beans){
 		this.water = water;
 		this.beans = beans;
 	}
-	 int dripping(){
+	int dripping(){
 		int liquid = 0;
 		pre_beans_setting(); //珈琲豆をセット
 		pre_infusion(); //蒸らし
@@ -47,20 +47,20 @@
 		System.out.println("抽出完了");
 		return liquid;
 	}
-	void pre_beans_setting() {
+	private void pre_beans_setting() {
 		System.out.println("ドリッパー（抽出器具）にペーパーフィルターをセットし、挽き豆" + beans.g + "g"
 				+ "を充填しました。");		
 		beans.g -= beans.g;
 		paper_filter -= 1;
 	}
-	void pre_infusion(){ 
+	private void pre_infusion(){ 
 		water.ml -= 50;
 		System.out.println("まんべんなく少量のお湯を掛けて、粉表面の全体を湿らしました。");
 		System.out.println("30秒ほど放置して粉を蒸らします。");
 		waiting(30);
 		System.out.println("蒸らし行程が完了しました。");
 	}	
-	void waiting(int sec) {
+	private void waiting(int sec) {
 		try {
 		    Thread.sleep(sec * 1000);
 		} catch (InterruptedException e) {
@@ -92,7 +92,7 @@
 }
 
  class IcedCoffee extends HotCoffee {
-	int ice;
+	 private int ice;
 	IcedCoffee(int water_temperature, int water_ml,	int grind_level, int beans_g,int ice){
 		super(water_temperature, water_ml,	grind_level, beans_g);
 		this.ice = ice;
@@ -107,9 +107,9 @@
 }
 
  class CoffeeJelly extends HotCoffee {
-	int ice;
-	int sugar;
-	int gelatin;
+	private int ice;
+	private int sugar;
+	private int gelatin;
 	CoffeeJelly(int water_temperature, int water_ml, int grind_level, int beans_g,int ice, int sugar,int gelatin){
 		super(water_temperature, water_ml,	grind_level, beans_g);
 		this.ice = ice;

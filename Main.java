@@ -19,7 +19,7 @@ public class Main {
 					break;
 				case 2:
 					System.out.println("【アイスコーヒーを作ります。】");
-					IcedCoffee ic = new IcedCoffee(90, 300, 5, 45, 250);
+					IcedCoffee ic = new IcedCoffee(88, 300, 5, 45, 250);
 					int liquid_ic = ic.making();
 					break;
 				case 3:	
