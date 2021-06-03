@@ -1,4 +1,4 @@
- class BoiledWater {
+class BoiledWater {
 	 int temperature;
 	 int ml;
 	 BoiledWater(int temperature, int ml) {
@@ -8,8 +8,8 @@
 	}
 }
  class GroundCoffeeBeans {
-	 private int grind_level; //エスプレッソ=2,  ドリップコーヒー=5,  サイフォン=8
-	 int g;
+	int grind_level; //エスプレッソ=2,  ドリップコーヒー=5,  サイフォン=8
+	int g;
 	 GroundCoffeeBeans(int grind_level, int g){
 		this.grind_level = grind_level;
 		this.g = g;
@@ -17,15 +17,15 @@
 	}
 }
  class HandDrip {
-	private BoiledWater water;
-	private GroundCoffeeBeans beans;
+	BoiledWater water;
+	GroundCoffeeBeans beans;
 	int paper_filter = 1;
-	
+
 	HandDrip(BoiledWater water, GroundCoffeeBeans beans){
 		this.water = water;
 		this.beans = beans;
 	}
-	int dripping(){
+	 int dripping(){
 		int liquid = 0;
 		pre_beans_setting(); //珈琲豆をセット
 		pre_infusion(); //蒸らし
@@ -47,20 +47,20 @@
 		System.out.println("抽出完了");
 		return liquid;
 	}
-	private void pre_beans_setting() {
+	void pre_beans_setting() {
 		System.out.println("ドリッパー（抽出器具）にペーパーフィルターをセットし、挽き豆" + beans.g + "g"
 				+ "を充填しました。");		
 		beans.g -= beans.g;
 		paper_filter -= 1;
 	}
-	private void pre_infusion(){ 
+	void pre_infusion(){ 
 		water.ml -= 50;
 		System.out.println("まんべんなく少量のお湯を掛けて、粉表面の全体を湿らしました。");
 		System.out.println("30秒ほど放置して粉を蒸らします。");
 		waiting(30);
 		System.out.println("蒸らし行程が完了しました。");
 	}	
-	private void waiting(int sec) {
+	void waiting(int sec) {
 		try {
 		    Thread.sleep(sec * 1000);
 		} catch (InterruptedException e) {
@@ -74,7 +74,7 @@
 	int water_ml;
 	int grind_level;
 	int beans_g;
-	
+
 	 HotCoffee(int water_temperature, int water_ml,	int grind_level, int beans_g) {
 		this.water_temperature = water_temperature;
 		this.water_ml = water_ml;
@@ -92,7 +92,7 @@
 }
 
  class IcedCoffee extends HotCoffee {
-	 private int ice;
+	int ice;
 	IcedCoffee(int water_temperature, int water_ml,	int grind_level, int beans_g,int ice){
 		super(water_temperature, water_ml,	grind_level, beans_g);
 		this.ice = ice;
@@ -107,9 +107,9 @@
 }
 
  class CoffeeJelly extends HotCoffee {
-	private int ice;
-	private int sugar;
-	private int gelatin;
+	int ice;
+	int sugar;
+	int gelatin;
 	CoffeeJelly(int water_temperature, int water_ml, int grind_level, int beans_g,int ice, int sugar,int gelatin){
 		super(water_temperature, water_ml,	grind_level, beans_g);
 		this.ice = ice;
@@ -127,6 +127,3 @@
 		return liquid;
 	}
 }
- 
- 
-
